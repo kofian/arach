@@ -76,5 +76,5 @@ pickle-email-*.html
 config/initializers/secret_token
 Gemfile.lock
 
-# Ignore application configuration
+#Ignore application configuration
 /config/application.yml
