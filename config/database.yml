@@ -1,28 +1,35 @@
-# For PostgreSQL please see 'database.yml.pgsql'.
+# To create a user for this webapp, run the following from PG's SQL console:
+#
+#   CREATE USER arachni WITH PASSWORD 'secret' CREATEDB;
+#
+# (Update the credentials in both the above SQL query and the bellow settings appropriately.)
 
 development:
-  adapter: sqlite3
-  database: db/development.sqlite3
+  host: localhost
+  adapter: postgresql
+  encoding: utf8
+  database: arachni_development
   pool: 50
-  timeout: 15000
-  reaping_frequency: 5
-  encoding: UTF8
-
-production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 50
-  timeout: 15000
-  reaping_frequency: 5
-  encoding: UTF8
+  password: "<%= Figaro.env.POSTGRES_DB_PASSWORD %>"
+  username: "<%= Figaro.env.POSTGRES_DB_USERNAME %>"
 
 test: &test
-  adapter: sqlite3
-  database: db/test.sqlite3
+  host: localhost
+  adapter: postgresql
+  encoding: utf8
+  database: arachni_test
   pool: 50
-  timeout: 15000
-  reaping_frequency: 5
-  encoding: UTF8
+  password: "<%= Figaro.env.POSTGRES_DB_PASSWORD %>"
+  username: "<%= Figaro.env.POSTGRES_DB_USERNAME %>"
+
+production:
+  host: localhost
+  adapter: postgresql
+  encoding: utf8
+  database: arachni_production
+  pool: 50
+  password: "<%= Figaro.env.POSTGRES_DB_PASSWORD %>"
+  username: "<%= Figaro.env.POSTGRES_DB_USERNAME %>"
 
 cucumber:
   <<: *test

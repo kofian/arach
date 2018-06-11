@@ -6,10 +6,11 @@ gem 'rails', '4.2.5.1'
 gem 'puma'
 
 # SQLite DB (Default)
-gem 'sqlite3'
+#gem 'sqlite3'
 
 # Postgres DB (Optional)
-gem 'pg'
+gem 'pg', '~> 0.15'
+gem "figaro"
 
 platforms :jruby do
     # Bunch of bundled DB adaptors for use when on JRuby.
@@ -97,4 +98,4 @@ group :test do
     gem 'faker'
 end
 
-gem 'arachni'
+gem 'arachni','1.5.1'
