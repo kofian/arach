@@ -74,7 +74,7 @@ pickle-email-*.html
 
 .env
 config/initializers/secret_token
-#Gemfile.lock
+Gemfile.lock
 
 # Ignore application configuration
 /config/application.yml
